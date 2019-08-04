@@ -1,6 +1,6 @@
 $:.push File.expand_path("lib", __dir__)
 
-# Maintain your gem's version:
+# Maintain your gem"s version:
 require "profile_widget/version"
 
 # Describe your gem and declare its dependencies:
@@ -27,5 +27,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", "~> 6.0.0.rc2"
   spec.add_dependency "annotate", "~> 2.7", ">= 2.7.5"
+  spec.add_dependency "jbuilder", "~> 2.5"
+  spec.add_dependency "name_of_person", "~> 1.1"
   spec.add_development_dependency "sqlite3"
 end

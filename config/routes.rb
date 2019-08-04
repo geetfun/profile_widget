@@ -1,5 +1,5 @@
 ProfileWidget::Engine.routes.draw do
 
-  resource :profile, controller: "profile", only: [:show, :update]
+  resource :profile, path: "", controller: "profile", only: [:show, :update]
 
 end
