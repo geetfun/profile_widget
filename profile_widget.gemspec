@@ -26,8 +26,13 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", "~> 6.0.0.rc2"
+  spec.add_dependency "active_link_to", "~> 1.0", ">= 1.0.5"
   spec.add_dependency "annotate", "~> 2.7", ">= 2.7.5"
+  spec.add_dependency "bootstrap", "~> 4.3", ">= 4.3.1"
+  spec.add_dependency "cocoon", "~> 1.2", ">= 1.2.12"
   spec.add_dependency "jbuilder", "~> 2.5"
+  spec.add_dependency "kaminari", "~> 1.1", ">= 1.1.1"
   spec.add_dependency "name_of_person", "~> 1.1"
+
   spec.add_development_dependency "sqlite3"
 end

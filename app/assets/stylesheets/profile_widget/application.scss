@@ -1,0 +1,21 @@
+@import "bootstrap";
+
+body {
+}
+
+@include media-breakpoint-up(lg) {
+  #sidebar {
+    display: block !important;
+    width: 300px;
+    position: fixed;
+    left: 0;
+    top: 56px;
+    bottom: 0;
+    border-right: 1px solid $gray-400;
+  }
+
+  #main {
+    padding: 1rem;
+    margin-left: 301px;
+  }
+}

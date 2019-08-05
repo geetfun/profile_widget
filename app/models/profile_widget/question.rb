@@ -1,5 +1,15 @@
 module ProfileWidget
   class Question < ApplicationRecord
-    belongs_to :survey
+
+    ##
+    # Associations
+
+    belongs_to :survey, class_name: "ProfileWidget::Survey", foreign_key: "profile_widget_survey_id"
+
+    ##
+    # Validations
+
+    validates :title, presence: true
+
   end
 end

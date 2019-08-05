@@ -1,0 +1,15 @@
+<%= form_with model: [:admin, @survey] do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Name this survey (eg. Onboarding survey)", class: "control-label" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <h2>Questions</h2>
+  <div id="questions">
+    <%= f.fields_for :questions do |question| %>
+      <%= render 'question_fields', f: question %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add question', f, :questions %>
+    </div>
+  </div>
+<% end %>

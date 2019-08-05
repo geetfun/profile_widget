@@ -1,15 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Profile widget</title>
+  <title>[Widgetful] Profile Admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
+  <%= javascript_include_tag "profile_widget/application", "data-turbolinks-track": "reload" %>
   <%= stylesheet_link_tag    "profile_widget/application", media: "all" %>
 </head>
 <body>
 
-<%= yield %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+  <%= link_to "Profile Widget", admin_root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <%= active_link_to "Surveys", admin_surveys_path, active: [['profile_widget/admin/surveys'], []], class: "nav-link", wrap_tag: :li, wrap_class: "nav-item" %>
+    </ul>
+  </div>
+</nav>
+
+<div id="wrapper">
+  <div id="sidebar">
+    <% if controller_name == "surveys"%>
+      <ul class="list-unstyled">
+        <li class="px-3 py-2">
+          <%= link_to "All Surveys", admin_surveys_path, class: "d-block" %>
+        </li>
+        <li class="px-3 py-2">
+          <%= link_to "Active", active_admin_surveys_path, class: "d-block" %>
+        </li>
+        <li class="px-3 py-2">
+          <%= link_to "Inactive", inactive_admin_surveys_path, class: "d-block" %>
+        </li>
+        <li class="px-3 py-2">
+          <%= link_to "Create Survey", new_admin_survey_path, class: "d-block" %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+  <div id="main">
+    <%= yield %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  App.init();
+</script>
 
 </body>
 </html>
