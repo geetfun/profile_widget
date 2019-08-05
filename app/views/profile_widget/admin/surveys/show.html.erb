@@ -1,0 +1,16 @@
+<h1>Survey #<%= @survey.id %><br><small class="text-muted"><%= @survey.title %></small></h1>
+
+<%= link_to "Delete survey", admin_survey_path(@survey), method: :delete, data: { confirm_with: "Are you sure?" }, class: "text-danger" %>
+
+<%= link_to "Edit survey", edit_admin_survey_path(@survey) %>
+
+<div id="questions" class="mt-5">
+<h2>Questions</h2>
+<% if @survey.questions.empty? %>
+<p>No questions added</p>
+<% else %>
+<ul>
+  <%= render partial: "profile_widget/admin/questions/question", collection: @survey.questions, as: :question %>
+</ul>
+<% end %>
+</div>
