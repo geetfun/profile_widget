@@ -1,15 +1,9 @@
 module ProfileWidget
   class Survey < ApplicationRecord
 
-    ##
-    # Associations
+    store :answers
 
-    has_many :questions, -> { order(created_at: :desc) }, class_name: "ProfileWidget::Question", foreign_key: "profile_widget_survey_id"
-
-    ##
-    # Nested attributes
-
-    accepts_nested_attributes_for :questions, reject_if: proc { |attributes| attributes['title'].blank? }, allow_destroy: true
+    belongs_to :profile_widget_profile, class_name: "ProfileWidget::Profile"
 
   end
 end
